@@ -1,3 +1,7 @@
 /access.log
 /error.log
 /vendor/
+/.settings/
+/.buildpath
+/.project
+/.gitignore
