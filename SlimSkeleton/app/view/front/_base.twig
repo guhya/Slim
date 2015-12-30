@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>	
+	<meta charset="utf-8">
+    <title>{{ pageTitle|default("Slim Framework") }}</title>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" />
+	{% block meta %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{{ WEB_ROOT }}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ WEB_ROOT }}/css/font-awesome.min.css">
+</head>
+<body>
+
+	{% block content %}{% endblock %}
+
+	<div class="container">
+		<div class="row">
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<div id="fb-root"></div>
+				<h4><span class="fa fa-facebook"> </span> Facebook</h4>					
+				<script>
+					window.fbAsyncInit = function() {
+						FB.init({
+							appId      : "",
+							xfbml      : true,
+							version    : "v2.5"
+						});
+					};
+				
+					(function(d, s, id){
+						 var js, fjs = d.getElementsByTagName(s)[0];
+						 if (d.getElementById(id)) {return;}
+						 js = d.createElement(s); js.id = id;
+						 js.src = "//connect.facebook.net/en_US/sdk.js";
+						 fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));
+				</script>
+								
+				<div class="fb-page" 
+					data-href="https://www.facebook.com/myiloom/" 
+					data-small-header="false" 
+					data-adapt-container-width="true" 
+					data-hide-cover="false" 
+					data-show-facepile="true" 
+					data-show-posts="true">
+					<div class="fb-xfbml-parse-ignore">
+						<blockquote cite="https://www.facebook.com/myiloom/">
+						<a href="https://www.facebook.com/myiloom/">guhya</a>
+						</blockquote>
+					</div>
+				</div>                    
+			</div>
+		</div>
+	</div>
+
+ 
+	<script src="{{ WEB_ROOT }}/js/jquery.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="{{ WEB_ROOT }}/js/bootstrap.min.js"></script>
+	
+	{% block js%}{% endblock %}
+	
+	<script>/*Place Your Google Analytics code here*/</script>
+    
+</body>
+</html>

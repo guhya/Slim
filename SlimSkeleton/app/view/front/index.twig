@@ -1,0 +1,91 @@
+{% extends 'front/_base.twig' %} 
+
+{% block meta %}
+	<meta name="description" content="This page explains everything you need about engineering business">
+	<meta name="keywords" content="Event, Test Page, Slim Skeleton App">
+	
+	<meta property="fb:app_id" 				content="" />
+	<meta property="og:url"           		content="{{ currentUrl() }}" />
+	<meta property="og:type"          		content="article" />
+	<meta property="og:title"         		content="Main Page - Event" />
+	<meta property="og:description"   		content="This page explains everything you need about engineering business. Test website." />
+	<meta property="og:image"         		content="" />
+	
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1>Main Page</h1>
+				<h3>This is the main page</h3>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+				when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+				It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+				It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+				and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+				</p>
+				<hr/>        
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top: 15px;">
+			<!--
+			<div class="col-lg-2">
+				<button class="btn btn-info" id="fbShare">Share on Facebook!</button>
+			</div>
+			-->
+			<div class="col-lg-2">
+				<button class="btn btn-success" id="fbPost">Share on Facebook!</button>
+			</div> 
+
+			<div class="col-lg-2">
+				<div class="fb-share-button" data-href="{{ currentUrl() }}" data-layout="button_count"></div>
+			</div> 
+			<div class="col-lg-2">
+				<div class="g-plusone" data-size="medium"></div>
+			</div>
+			<div class="col-lg-6">
+				<div class="fb-like"
+				  data-share="true"
+				  data-width="450"
+				  data-show-faces="true">
+				</div>
+			</div> 
+		</div>								
+		
+	</div>
+{% endblock %}
+
+{% block js%}
+	<script>
+	$(document).ready(function(){
+		$("#fbShare").click(function(){
+			FB.ui({
+				method	: "share",
+				href	: "{{ currentUrl() }}",
+			}, function(response){
+				console.log(response);
+			});
+
+		});
+		
+		$("#fbPost").click(function(){
+			FB.ui({
+				method	: "feed",
+				caption : "",
+				link	: "{{ currentUrl() }}",
+			}, function(response){
+				if(!response){
+					alert("You haven't shared this post!")
+				}else{
+					alert("You shared this post, thank you!!!")
+				}
+			});
+
+		});
+
+	});
+	</script>
+{% endblock %}	

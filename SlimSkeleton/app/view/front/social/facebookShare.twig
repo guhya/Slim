@@ -1,0 +1,72 @@
+{% extends 'front/_base.twig' %} 
+
+{% block meta %}
+	<meta name="description" content="This page explains everything you need about engineering business">
+	<meta name="keywords" content="Guhya Wijaya, Guhya Test Page, Slim Skeleton App">
+	
+	<meta property="fb:app_id" content="" />
+	
+	<meta property="og:url"           content="{{ currentUrl() }}" />
+	<meta property="og:type"          content="website" />
+	<meta property="og:title"         content="Main Page - Guhya Wijaya" />
+	<meta property="og:description"   content="This page explains everything you need about engineering business. Test website." />
+	<meta property="og:image"         content="http://blog.guhya.net/wp-content/uploads/2014/12/slide-1.jpg" />
+	
+	<meta name="twitter:card" content="photo">
+	<meta name="twitter:site" content="@guhyawijaya">
+	<meta name="twitter:creator" content="@guhyawijaya">
+	<meta name="twitter:title" content="Main Page - Guhya Wijaya">
+	<meta name="twitter:image:src" content="http://blog.guhya.net/wp-content/uploads/2014/12/slide-1.jpg">
+	<meta name="twitter:domain" content="http://guhya.net">
+	<meta name="twitter:url" content="{{ currentUrl() }}">
+	<meta name="twitter:app:id:iphone" content="">
+	<meta name="twitter:app:id:ipad" content="">
+	<meta name="twitter:app:id:googleplay" content="">
+	<meta name="twitter:app:url:iphone" content="">
+	<meta name="twitter:app:url:ipad" content="">
+	<meta name="twitter:app:url:googleplay" content="">		
+	
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h2>Share Facebook</h2>
+				<h4>This is the main page</h4>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+				Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+				when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+				</p>
+				<hr/>        
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top: 15px;">
+			<div class="col-lg-2">
+				<div class="fb-share-button" data-href="{{ currentUrl() }}" data-layout="button_count"></div>
+			</div> 
+			<div class="col-lg-2">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-via="guhyawijaya">Tweet</a>
+			</div> 
+			<div class="col-lg-2">
+				<div class="g-plusone" data-size="medium"></div>
+			</div>
+			<div class="col-lg-6">
+				<div class="fb-like"
+				  data-share="true"
+				  data-width="450"
+				  data-show-faces="true">
+				</div>
+			</div> 
+		</div>								
+		
+	</div>
+{% endblock %}
+
+{% block js%}
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+{% endblock %}	
