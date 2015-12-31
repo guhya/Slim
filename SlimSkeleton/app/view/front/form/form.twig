@@ -1,0 +1,138 @@
+{% extends 'front/_base.twig' %} 
+
+{% block meta %}
+	<meta name="description" content="This page explains everything you need about engineering business">
+	<meta name="keywords" content="Event, Test Page, Slim Skeleton App">
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1>Register</h1>
+				<h3>Registration form</h3>
+				<hr/>        
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top: 15px;">
+				<div class="form">
+					<form class="form-validate form-horizontal" id="registrationForm" name="registrationForm" method="post">
+					
+						<div class="form-group">
+							<label for="name" class="control-label col-lg-2">Name <span class="required">*</span></label>
+							<div class="col-lg-4">
+								<input class="form-control" id="name" name="name" minlength="4" maxlength="200" type="text" required="required">
+								<p class="help-block"></p>
+							</div>
+						
+							<label for="file0" class="control-label col-lg-2">Logo</label>
+							<div class="col-lg-4">
+								<div id="fileList">
+									<p style="display:none"><img src="" id="imgLogo" alt="logo"/></p>						
+									<input type="file" id="file0" name="file0" title="file0" class="file" />										
+									<p class="help-block">*Only (GIF, JPG, PNG).</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="file1" class="control-label col-lg-2">Image1</label>
+							<div class="col-lg-4">
+								<div id="fileList">
+									<p style="display:none"><img src="" id="imgLogo" alt="logo"/></p>						
+									<input type="file" id="file1" name="file1" title="file1" class="file" />										
+									<p class="help-block">*Only (GIF, JPG, PNG).</p>
+								</div>
+							</div>						
+							<label for="file2" class="control-label col-lg-2">Image2</label>
+							<div class="col-lg-4">
+								<div id="fileList">
+									<p style="display:none"><img src="" id="imgLogo" alt="logo"/></p>						
+									<input type="file" id="file2" name="file2" title="file2" class="file" />										
+									<p class="help-block">*Only (GIF, JPG, PNG).</p>
+								</div>
+							</div>						
+						</div>
+						<div class="form-group">
+							<label for="file3" class="control-label col-lg-2">Image3</label>
+							<div class="col-lg-4">
+								<div id="fileList">
+									<p style="display:none"><img src="" id="imgLogo" alt="logo"/></p>						
+									<input type="file" id="file3" name="file3" title="file3" class="file" />										
+									<p class="help-block">*Only (GIF, JPG, PNG).</p>
+								</div>
+							</div>						
+							<label for="file4" class="control-label col-lg-2">Image4</label>
+							<div class="col-lg-4">
+								<div id="fileList">
+									<p style="display:none"><img src="" id="imgLogo" alt="logo"/></p>						
+									<input type="file" id="file4" name="file4" title="file4" class="file" />										
+									<p class="help-block">*Only (GIF, JPG, PNG).</p>
+								</div>
+							</div>						
+						</div>
+						<div class="form-group">
+							<label for="file5" class="control-label col-lg-2">Image5</label>
+							<div class="col-lg-4">
+								<div id="fileList">
+									<p style="display:none"><img src="" id="imgLogo" alt="logo"/></p>						
+									<input type="file" id="file5" name="file5" title="file5" class="file" />										
+									<p class="help-block">*Only (GIF, JPG, PNG).</p>
+								</div>
+							</div>						
+						</div>
+						
+						<div class="form-group">
+							<div class="col-lg-offset-2 col-lg-10">
+								<button class="btn btn-primary" type="button" onclick="saveProc();">Save</button>
+							</div>
+						</div>
+						
+					</form>
+				</div>			
+		</div>
+									
+	</div>
+{% endblock %}
+
+{% block js%}
+<script>	
+	var saveProc = function(){
+		var frm = document.registrationForm;
+		for(var i=0; i<=5; i++){
+			if(frm["file"+i] && frm["file"+i].value !== ""){
+				if (frm["file"+i].value.match(/(.jpg|.jpeg|.gif|.png)$/i) === null){
+					alert("Only (.gif, .jpg, .png)");
+					return;
+				}
+			}
+		}
+					
+		frm.encoding		= "multipart/form-data";
+		frm.submit();
+	}	
+	
+	var readURL = function(input) {
+		console.log("called");
+	    if (input.files && input.files[0]) {
+	        var reader = new FileReader();
+	        reader.onload = function (e) {
+	            $("#imgLogo").attr("src", e.target.result);
+	            $("#imgLogo").attr("style", "max-width: 150px;");
+	            $("#imgLogo").parent().fadeIn();
+	        }
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+
+	$(document).ready(function(){
+		/* 
+		$("#fileList").on("change", "#file1", function(){
+		    readURL(this);
+		});
+		 */
+	});
+
+</script>
+{% endblock %}	
