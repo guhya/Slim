@@ -5,3 +5,5 @@
 /.buildpath
 /.project
 /.gitignore
+/SlimSkeleton-access.log
+/SlimSkeleton-error.log

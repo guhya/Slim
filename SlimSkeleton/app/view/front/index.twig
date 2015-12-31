@@ -4,10 +4,10 @@
 	<meta name="description" content="This page explains everything you need about engineering business">
 	<meta name="keywords" content="Event, Test Page, Slim Skeleton App">
 	
-	<meta property="fb:app_id" 				content="" />
+	<meta property="fb:app_id" 				content="{{ FACEBOOK_ID }}" />
 	<meta property="og:url"           		content="{{ currentUrl() }}" />
 	<meta property="og:type"          		content="article" />
-	<meta property="og:title"         		content="Main Page - Event" />
+	<meta property="og:title"         		content="Main Page - Ewideplus Event" />
 	<meta property="og:description"   		content="This page explains everything you need about engineering business. Test website." />
 	<meta property="og:image"         		content="" />
 	
@@ -74,7 +74,7 @@
 		$("#fbPost").click(function(){
 			FB.ui({
 				method	: "feed",
-				caption : "",
+				caption : "Ewideplus",
 				link	: "{{ currentUrl() }}",
 			}, function(response){
 				if(!response){
